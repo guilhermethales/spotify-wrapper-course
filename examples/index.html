@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Spotify Wrapper</title>
+</head>
+
+<style>
+  .container {
+    width: 100%;
+    background-color: #ccc;
+    display: flex;
+  }
+
+  .img {
+    height: 200px;
+    width: 200px;
+    border: 1px solid red;
+  }
+</style>
+<body>
+
+  <div class="container">
+    <div id="albums">
+
+    </div>
+  </div>
+  
+  <script src="../dist/spotify-wrapper.umd.min.js"></script>
+  <script>
+    const albums = spotifyWrapper.default.searchAlbums('O Rappa');
+    const albumsEL = document.querySelector('#albums');
+
+    albums
+      .then(data => {
+        markup = data.albums.items.map(item =>
+          `<img src=${item.images[1].url}>`
+        ).join('');
+        albumsEL.innerHTML = markup;
+      })
+        
+  </script>
+</body>
+</html>
