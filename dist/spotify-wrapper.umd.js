@@ -83,7 +83,15 @@ return /******/ (function(modules) { // webpackBootstrap
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var TOKEN_API = 'BQCXrHYSrj2iVEWXM7iHRdK0cE8ks7zeROvYwWxxBkyyxbCIMxwtaxenvNFOZK56HBEkv8MKVZPdRlZytS8BR1FHfDDiunrOvE3J62lbtBp8Z3q6Gk9SoQwIPFDP-PE_HomqjoA8nWUbeSu407KYw3J0LolP_qC2YCcO3feXeuQbvbSgYnSBU21aixX5v8WzQyVtYDPhmuD9skA2TrFJTTtQSmO3C1iIfdLsiP8d5M5jCpc_OewTpNfe6nQA83O7pHM2M5TSXa6d';
+
 var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
+
+var headers = exports.headers = {
+  headers: {
+    Authorization: 'Bearer ' + TOKEN_API
+  }
+};
 
 /***/ }),
 /* 1 */
@@ -143,14 +151,8 @@ var _config = __webpack_require__(0);
 
 var _utils = __webpack_require__(1);
 
-var headers = {
-  headers: {
-    Authorization: 'Bearer BQC4XmYYwsKaJ7bNp3SW9ZDqz3J1zdNup5TbIyTgJctCyVHfTjxIWEg8zBQ2yRmGvbjwgT59Gz5e48vC2H8rUWHUHHRQ8tl54UIabHVrvCj1u5VXkwn1dFKwE43Bq_VqXMKsFvQOi8Wj3WW5DZsnbdQ1VkMSkMjJYRLy9ogq8tcPYUVidTTDpzXYpFVH-fjY76_pdlWwrvum3-dr0w0RFXSzbkAdHg9XMQec5jlm4XdPS_Mp3PLVW0eodr6AGYP9vi9PhwalNC9B'
-  }
-};
-
 var search = function search(query, type) {
-  return fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, headers).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.headers).then(_utils.toJSON);
 };
 
 var searchArtists = function searchArtists(query) {

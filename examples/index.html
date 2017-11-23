@@ -27,10 +27,10 @@
 
     </div>
   </div>
-  
+
   <script src="../dist/spotify-wrapper.umd.min.js"></script>
   <script>
-    const albums = spotifyWrapper.default.searchAlbums('O Rappa');
+    const albums = spotifyWrapper.default.searchAlbums('Charlie Brown Jr');
     const albumsEL = document.querySelector('#albums');
 
     albums
@@ -40,7 +40,7 @@
         ).join('');
         albumsEL.innerHTML = markup;
       })
-        
+
   </script>
 </body>
 </html>
